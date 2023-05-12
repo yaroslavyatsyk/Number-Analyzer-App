@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Number_Analyser_App;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -103,8 +104,11 @@ namespace Number_Analysis_App
                     OddDigitsBox.Text = "No";
                 }
 
-                FrequencyOfDigits frequencyOfDigits = new FrequencyOfDigits(numberAnalysis);
-                frequencyOfDigits.Show();
+                FrequencyWindow frequency_OF_Digits = new FrequencyWindow(numberAnalysis);
+
+                frequency_OF_Digits.Show();
+
+                
          
             }
             catch (Exception ex)
