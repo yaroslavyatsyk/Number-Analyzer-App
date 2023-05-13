@@ -202,16 +202,17 @@ namespace Number_Analysis_App
             return binaryNumber;
         }
 
-        public string ToOctal()
+        public int ToOctal()
         {
             int tempNumber = number;
-           string octalNumber = "";
+          int octal = 0;
             while (tempNumber > 0)
             {
-                octalNumber += (tempNumber % 8);
+               octal += (tempNumber % 8);
+                octal *= 10;
                 tempNumber /= 8;
             }
-            return octalNumber;
+            return octal;
         }
 
         public string ToHexadecimal()
