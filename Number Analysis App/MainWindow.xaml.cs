@@ -104,6 +104,23 @@ namespace Number_Analysis_App
                     OddDigitsBox.Text = "No";
                 }
 
+                if(numberAnalysis.IsFactorial())
+                {
+                    IsFactorialTextBox.Text = "Yes";
+                }
+                else
+                {
+                    IsFactorialTextBox.Text = "No";
+                }
+
+                if(numberAnalysis.IsStrongNumber())
+                {
+                    IsStrongNumberTextBox.Text = "Yes";
+                }
+                else
+                {
+                    IsStrongNumberTextBox.Text = "No";
+                    }
                 FrequencyWindow frequency_OF_Digits = new FrequencyWindow(numberAnalysis);
 
                 frequency_OF_Digits.Show();
