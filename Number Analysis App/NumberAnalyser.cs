@@ -257,6 +257,57 @@ namespace Number_Analysis_App
             return hexadecimalNumber;
         }
 
+        private int GetFactorial(int number)
+        {
+            int[] facts = new int[number + 1];
+
+            if(number < 0)
+            {
+                return 0;
+            }
+            else if(number == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                facts[0] = 1;
+                for(int i = 1; i <= number; i++)
+                {
+                    facts[i] = i * facts[i - 1];
+                }
+                return facts[number];
+            }
+        }
+
+        public bool IsStrongNumber()
+        {
+            int tempNumber = number;
+            int sumOfFactorials = 0;
+            while (tempNumber > 0)
+            {
+                sumOfFactorials += GetFactorial(tempNumber % 10);
+                tempNumber /= 10;
+            }
+            return sumOfFactorials == number;
+        }
+
+        public bool IsFactorial()
+        {
+            int fact = 1;
+
+            for(int i = 1; i <= number; i++)
+            {
+                fact *= i;
+                if(fact == number)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
     }
 }
