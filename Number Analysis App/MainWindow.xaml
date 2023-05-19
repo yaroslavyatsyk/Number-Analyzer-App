@@ -11,11 +11,7 @@
             <ImageBrush ImageSource="/number.jpg"/>
         </Grid.Background>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*"/>
 
-            <ColumnDefinition Width="26*"/>
-        </Grid.ColumnDefinitions>
         <TextBox x:Name="EnterNumberBox" HorizontalAlignment="Left" Margin="210,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AutomationProperties.HelpText="Enter the number here" Height="18"/>
         <Button x:Name="button" Content="Analyze" HorizontalAlignment="Left" Margin="375,469,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.222,-2.754" Click="button_Click" Height="20" Width="45"/>
         <TextBox x:Name="ShowNumberBox" HorizontalAlignment="Left" Margin="210,112,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.354,0.169" TextWrapping="WrapWithOverflow" IsReadOnly="True" Height="18"/>
@@ -30,29 +26,29 @@
         <Label x:Name="label2" Content="Binary Representation" HorizontalAlignment="Left" Margin="80,334,0,0" VerticalAlignment="Top" Background="WhiteSmoke" Height="26" Width="126"/>
         <TextBox x:Name="BinaryTextBox" HorizontalAlignment="Left" Margin="225,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Height="18"/>
         <Label x:Name="label2_Copy" Content="Octal Representation" HorizontalAlignment="Left" Margin="380,67,0,0" VerticalAlignment="Top" Background="WhiteSmoke" Height="26" Width="126" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="OctalTextBox" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Grid.Column="2" Height="18"/>
+        <TextBox x:Name="OctalTextBox" HorizontalAlignment="Left" Margin="555,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Height="18"/>
         <Label x:Name="label2_Copy1" Content="HexaDecimal Representation" HorizontalAlignment="Left" Margin="368,112,0,0" VerticalAlignment="Top" Background="WhiteSmoke" Height="26" Width="162" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="HexaDecimalTextBox" HorizontalAlignment="Left" Margin="10,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Grid.Column="2" Height="18"/>
+        <TextBox x:Name="HexaDecimalTextBox" HorizontalAlignment="Left" Margin="555,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Height="18"/>
         <Label x:Name="label3" Content="Is the Prime Number?" HorizontalAlignment="Left" Margin="368,167,0,0" VerticalAlignment="Top" Background="WhiteSmoke" Grid.ColumnSpan="2" Width="128"/>
-        <TextBox x:Name="PrimeNumberBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="PrimeNumberBox" HorizontalAlignment="Left" Margin="555,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" RenderTransformOrigin="0.5,0.448"/>
         <Label x:Name="label4" Content="Is the Palindrome?" HorizontalAlignment="Left" Margin="378,209,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
-        <TextBox x:Name="PalindromeTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="PalindromeTextBox" HorizontalAlignment="Left" Margin="555,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Label x:Name="label5" Content="Is the Amstrong Number?" HorizontalAlignment="Left" Margin="380,253,0,0" VerticalAlignment="Top" Background="WhiteSmoke" Grid.ColumnSpan="2" Width="150"/>
-        <TextBox x:Name="AmstrongTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <Label x:Name="label6" Content="Max Digit" HorizontalAlignment="Left" Margin="390,297,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
-        <TextBox x:Name="MaxDigitBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <Label x:Name="label7" Content="Min Digit" HorizontalAlignment="Left" Margin="390,338,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
-        <TextBox x:Name="MinDigitBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="AmstrongTextBox" HorizontalAlignment="Left" Margin="555,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label x:Name="label6" Content="Max Digit" HorizontalAlignment="Left" Margin="401,297,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
+        <TextBox x:Name="MaxDigitBox" HorizontalAlignment="Left" Margin="555,301,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label x:Name="label7" Content="Min Digit" HorizontalAlignment="Left" Margin="400,338,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
+        <TextBox x:Name="MinDigitBox" HorizontalAlignment="Left" Margin="555,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Label x:Name="label8" Content="Is the Perfect Number?" HorizontalAlignment="Left" Margin="80,378,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
         <TextBox x:Name="PerfectNumberBox" HorizontalAlignment="Left" Margin="225,382,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Label x:Name="label9" Content="Contains Even Digits?" HorizontalAlignment="Left" Margin="390,378,0,0" VerticalAlignment="Top" Background="WhiteSmoke" Grid.ColumnSpan="2" Width="125"/>
-        <TextBox x:Name="EvenDigitsBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,382,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="EvenDigitsBox" HorizontalAlignment="Left" Margin="555,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label10" Content="Contains Odd Digits" HorizontalAlignment="Left" Margin="80,418,0,0" VerticalAlignment="Top" Background="WhiteSmoke"/>
         <TextBox x:Name="OddDigitsBox" HorizontalAlignment="Left" Margin="225,422,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Label x:Name="label11" Content="Is the number factorial?" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="368,28,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="147"/>
-        <TextBox x:Name="IsFactorialTextBox" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Grid.Column="2" Height="18"/>
+        <TextBox x:Name="IsFactorialTextBox" HorizontalAlignment="Left" Margin="555,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Height="18"/>
         <Label x:Name="label12" Content="Is the strong number?" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="394,414,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="136"/>
-        <TextBox x:Name="IsStrongNumberTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,422,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="IsStrongNumberTextBox" HorizontalAlignment="Left" Margin="555,418,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>
