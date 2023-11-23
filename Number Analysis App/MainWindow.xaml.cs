@@ -159,6 +159,7 @@ namespace Number_Analysis_App
                         iTextSharp.text.Document document = new iTextSharp.text.Document();
                         PdfWriter.GetInstance(document, new FileStream(dialog.FileName, FileMode.Create));
                         document.Open();
+                 
                         document.AddTitle("Number Analysis Report");
                         document.AddCreationDate();
                         document.Add(new iTextSharp.text.Paragraph("Number: " + numberAnalysis.Number.ToString()));
