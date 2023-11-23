@@ -11,3 +11,5 @@ Demo samples
 2. The frequency of digits window
 ![image](https://github.com/yaroslavyatsyk/Number-Analyzer-App/assets/31794068/bffd5cf0-2924-43a7-b07a-631d7a279c3a)
 
+3. PDF Report
+![image](https://github.com/yaroslavyatsyk/Number-Analyzer-App/assets/31794068/641fc51a-71e7-4b70-a3dd-f7479da9c0f8)
