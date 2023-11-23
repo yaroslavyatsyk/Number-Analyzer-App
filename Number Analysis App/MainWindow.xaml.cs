@@ -170,7 +170,7 @@ namespace Number_Analysis_App
 
                         // Add date to the document
                         var dateFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
-                        var dateParagraph = new iTextSharp.text.Paragraph(DateTime.Now.ToString("dd/MM/yyyy"), dateFont);
+                        var dateParagraph = new iTextSharp.text.Paragraph(DateTime.Now.ToString("yyyy/mm/dd"), dateFont);
                         dateParagraph.Alignment = Element.ALIGN_RIGHT;
                         document.Add(dateParagraph);
 
