@@ -149,7 +149,7 @@ namespace Number_Analysis_App
                     dialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     dialog.DefaultExt = "pdf";
                     dialog.AddExtension = true;
-                    dialog.FileName = "Number Analysis Report";
+                    dialog.FileName = "Number Analysis Report " + DateTime.Now.ToString("yyyy/mm/dd") ;
                     dialog.ShowDialog();
 
                     if (dialog.FileName != "")
@@ -223,6 +223,8 @@ namespace Number_Analysis_App
 
                         document.Add(table);
                         document.Close();
+
+                        writer.Close();
 
                         System.Windows.MessageBox.Show("Report Saved Successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
