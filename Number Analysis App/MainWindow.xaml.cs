@@ -144,10 +144,8 @@ namespace Number_Analysis_App
         {
             if (numberAnalysis is not null)
             {
-
                 using (SaveFileDialog dialog = new SaveFileDialog())
                 {
-
                     dialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     dialog.DefaultExt = "pdf";
                     dialog.AddExtension = true;
@@ -157,11 +155,30 @@ namespace Number_Analysis_App
                     if (dialog.FileName != "")
                     {
                         iTextSharp.text.Document document = new iTextSharp.text.Document();
-                        PdfWriter.GetInstance(document, new FileStream(dialog.FileName, FileMode.Create));
+
+                        // Specify the file stream in the PdfWriter.GetInstance
+                        PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(dialog.FileName, FileMode.Create));
+                        writer.PageEvent = new PdfPageEventHelper();  // Set PageEvent to handle headers and footers
+
                         document.Open();
-                 
-                        document.AddTitle("Number Analysis Report");
-                        document.AddCreationDate();
+
+                        // Add title to the document
+                        var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
+                        var titleParagraph = new iTextSharp.text.Paragraph("Number Analysis Report", titleFont);
+                        titleParagraph.Alignment = Element.ALIGN_CENTER;
+                        document.Add(titleParagraph);
+
+                        // Add date to the document
+                        var dateFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+                        var dateParagraph = new iTextSharp.text.Paragraph(DateTime.Now.ToString("dd/MM/yyyy"), dateFont);
+                        dateParagraph.Alignment = Element.ALIGN_RIGHT;
+                        document.Add(dateParagraph);
+
+                        document.Add(new iTextSharp.text.Paragraph("\n"));
+
+
+                        // Add content to the PDF (as in your existing code)
+                       
                         document.Add(new iTextSharp.text.Paragraph("Number: " + numberAnalysis.Number.ToString()));
                         document.Add(new iTextSharp.text.Paragraph("Number of Digits: " + numberAnalysis.GetDigitsCount().ToString()));
                         document.Add(new iTextSharp.text.Paragraph("Sum of Digits: " + numberAnalysis.GetSumOfDigits().ToString()));
@@ -180,13 +197,21 @@ namespace Number_Analysis_App
                         document.Add(new iTextSharp.text.Paragraph("Is Factorial: " + numberAnalysis.IsFactorial().ToString()));
                         document.Add(new iTextSharp.text.Paragraph("Is Strong Number: " + numberAnalysis.IsStrongNumber().ToString()));
 
-                        document.AddTitle("Frequency of Digits");
 
+                        var titleTable = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+                        var titleTableParagraph = new iTextSharp.text.Paragraph("Digit Frequencies", titleTable);
+                        titleTableParagraph.Alignment = Element.ALIGN_CENTER;
+                        document.Add(titleTableParagraph);
+
+
+                        document.Add(new iTextSharp.text.Paragraph("\n"));
+
+                   
+
+                        // Add table with digit frequencies
                         PdfPTable table = new PdfPTable(2);
-
                         table.AddCell("Digit");
                         table.AddCell("Frequency");
-
 
                         var map = numberAnalysis.GetDigitFrequencies();
 
@@ -198,17 +223,9 @@ namespace Number_Analysis_App
 
                         document.Add(table);
                         document.Close();
+
                         System.Windows.MessageBox.Show("Report Saved Successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                   
-
-
-
-
-                   
-
-                   
-
                 }
             }
             else
@@ -216,5 +233,6 @@ namespace Number_Analysis_App
                 System.Windows.MessageBox.Show("Please enter a number first", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }
