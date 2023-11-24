@@ -39,7 +39,7 @@ namespace Number_Analysis_App
         {
             try
             {
-                BigInteger number = BigInteger.Parse(EnterNumberBox.Text);
+                long number = long.Parse(EnterNumberBox.Text);
                 numberAnalysis = new NumberAnalyser(number);
 
                 ShowNumberBox.Text = numberAnalysis.Number.ToString();
@@ -150,7 +150,7 @@ namespace Number_Analysis_App
                     dialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     dialog.DefaultExt = "pdf";
                     dialog.AddExtension = true;
-                    dialog.FileName = "Number Analysis Report " + DateTime.Now.ToString("yyyy/mm/dd") ;
+                    dialog.FileName = "Number Analysis Report " +  DateTime.Today.ToString("yyyy/MM/dd");
                     dialog.ShowDialog();
 
                     if (dialog.FileName != "")
@@ -171,7 +171,7 @@ namespace Number_Analysis_App
 
                         // Add date to the document
                         var dateFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
-                        var dateParagraph = new iTextSharp.text.Paragraph(DateTime.Now.ToString("yyyy/mm/dd"), dateFont);
+                        var dateParagraph = new iTextSharp.text.Paragraph("Date: " + DateTime.Today.ToString("yyyy/MM/dd"), dateFont);
                         dateParagraph.Alignment = Element.ALIGN_RIGHT;
                         document.Add(dateParagraph);
 

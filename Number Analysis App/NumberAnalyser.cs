@@ -9,9 +9,9 @@ namespace Number_Analysis_App
 {
     public class NumberAnalyser
     {
-        private BigInteger number;
+        private long number;
 
-        public NumberAnalyser(BigInteger number)
+        public NumberAnalyser(long number)
         {
             this.number = number;
         }
@@ -33,22 +33,22 @@ namespace Number_Analysis_App
             return digitsCount;
         }
 
-        public BigInteger GetSumOfDigits()
+        public int GetSumOfDigits()
         {
             var tempNumber = number;
-            BigInteger sumOfDigits = 0;
+            int sumOfDigits = 0;
             while (tempNumber > 0)
             {
-                sumOfDigits +=  tempNumber % 10;
+                sumOfDigits += (int)tempNumber % 10;
                 tempNumber /= 10;
             }
             return sumOfDigits;
         }
 
-        public BigInteger GetProductOfDigits()
+        public long GetProductOfDigits()
         {
             var tempNumber = number;
-            BigInteger productOfDigits = 1;
+            long productOfDigits = 1;
             while (tempNumber > 0)
             {
                 productOfDigits *= tempNumber % 10;
@@ -87,13 +87,13 @@ namespace Number_Analysis_App
             return smallestDigit;
         }
 
-        public Dictionary<int, int> GetDigitFrequencies()
+        public Dictionary<long, int> GetDigitFrequencies()
         {
             var tempNumber = number;
-            Dictionary<int, int> digitFrequencies = new Dictionary<int, int>();
+            Dictionary<long, int> digitFrequencies = new Dictionary<long, int>();
             while (tempNumber > 0)
             {
-                int digit = (int)(tempNumber % 10);
+               var digit = tempNumber % 10;
                 if (digitFrequencies.ContainsKey(digit))
                 {
                     digitFrequencies[digit]++;
@@ -203,10 +203,10 @@ namespace Number_Analysis_App
             return binaryNumber;
         }
 
-        public BigInteger ToOctal()
+        public long ToOctal()
         {
             var tempNumber = number;
-          BigInteger octal = 0;
+          long octal = 0;
             while (tempNumber > 0)
             {
                octal += (tempNumber % 8);
@@ -258,7 +258,7 @@ namespace Number_Analysis_App
             return hexadecimalNumber;
         }
 
-        private int GetFactorial(int number)
+        private long GetFactorial(int number)
         {
             int[] facts = new int[number + 1];
 
@@ -287,7 +287,7 @@ namespace Number_Analysis_App
             int sumOfFactorials = 0;
             while (tempNumber > 0)
             {
-                sumOfFactorials += GetFactorial((int)(tempNumber % 10));
+                sumOfFactorials += (int)GetFactorial((int)(tempNumber % 10));
                 tempNumber /= 10;
             }
             return sumOfFactorials == number;
