@@ -162,6 +162,7 @@ namespace Number_Analysis_App
                         writer.PageEvent = new PdfPageEventHelper();  // Set PageEvent to handle headers and footers
 
                         document.Open();
+                        document.NewPage();
 
                         // Add title to the document
                         var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
@@ -291,6 +292,8 @@ namespace Number_Analysis_App
                        
                        
                         document.Add(reportTable);
+
+                        document.NewPage();
 
 
                         var titleTable = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
