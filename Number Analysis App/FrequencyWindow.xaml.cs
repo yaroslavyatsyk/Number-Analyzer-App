@@ -27,7 +27,8 @@ namespace Number_Analyser_App
             InitializeComponent();
             this.analyser = analyser;
 
-            dataGrid.ItemsSource = analyser.GetDigitFrequencies();
+            dataGrid.ItemsSource = analyser.GetDigitFrequencies().OrderBy(x => x.Key).ToDictionary(x => x.Key, y => y.Value);
+           
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

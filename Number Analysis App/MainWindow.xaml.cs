@@ -310,6 +310,8 @@ namespace Number_Analysis_App
 
                         var map = numberAnalysis.GetDigitFrequencies();
 
+                        map = map.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+
                         foreach (var item in map)
                         {
                             table.AddCell(item.Key.ToString());
