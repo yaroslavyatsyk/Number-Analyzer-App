@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,19 +9,19 @@ namespace Number_Analysis_App
 {
     public class NumberAnalyser
     {
-        private int number;
+        private BigInteger number;
 
-        public NumberAnalyser(int number)
+        public NumberAnalyser(BigInteger number)
         {
             this.number = number;
         }
 
-        public int Number { get { return number; } }
+        public BigInteger Number { get { return number; } }
 
 
         public int GetDigitsCount()
         {
-            int tempNumber = number;
+            var tempNumber = number;
 
             int digitsCount = 0;
 
@@ -32,22 +33,22 @@ namespace Number_Analysis_App
             return digitsCount;
         }
 
-        public int GetSumOfDigits()
+        public BigInteger GetSumOfDigits()
         {
-            int tempNumber = number;
-            int sumOfDigits = 0;
+            var tempNumber = number;
+            BigInteger sumOfDigits = 0;
             while (tempNumber > 0)
             {
-                sumOfDigits += tempNumber % 10;
+                sumOfDigits +=  tempNumber % 10;
                 tempNumber /= 10;
             }
             return sumOfDigits;
         }
 
-        public int GetProductOfDigits()
+        public BigInteger GetProductOfDigits()
         {
-            int tempNumber = number;
-            int productOfDigits = 1;
+            var tempNumber = number;
+            BigInteger productOfDigits = 1;
             while (tempNumber > 0)
             {
                 productOfDigits *= tempNumber % 10;
@@ -58,13 +59,13 @@ namespace Number_Analysis_App
 
         public int GetLargestDigit()
         {
-            int tempNumber = number;
-            int largestDigit = tempNumber % 10;
+            var tempNumber = number;
+            int largestDigit = (int)(tempNumber % 10);
             while (tempNumber > 0)
             {
                 if (tempNumber % 10 > largestDigit)
                 {
-                    largestDigit = tempNumber % 10;
+                    largestDigit = (int)(tempNumber % 10);
                 }
                 tempNumber /= 10;
             }
@@ -73,13 +74,13 @@ namespace Number_Analysis_App
 
         public int GetSmallestDigit()
         {
-            int tempNumber = number;
-            int smallestDigit = tempNumber % 10;
+            var tempNumber = number;
+            int smallestDigit = (int)(tempNumber % 10);
             while (tempNumber > 0)
             {
                 if (tempNumber % 10 < smallestDigit)
                 {
-                    smallestDigit = tempNumber % 10;
+                    smallestDigit = (int)(tempNumber % 10);
                 }
                 tempNumber /= 10;
             }
@@ -88,11 +89,11 @@ namespace Number_Analysis_App
 
         public Dictionary<int, int> GetDigitFrequencies()
         {
-            int tempNumber = number;
+            var tempNumber = number;
             Dictionary<int, int> digitFrequencies = new Dictionary<int, int>();
             while (tempNumber > 0)
             {
-                int digit = tempNumber % 10;
+                int digit = (int)(tempNumber % 10);
                 if (digitFrequencies.ContainsKey(digit))
                 {
                     digitFrequencies[digit]++;
@@ -124,7 +125,7 @@ namespace Number_Analysis_App
 
         public bool ContainsEvenDigits()
         {
-            int tempNumber = number;
+            var tempNumber = number;
             while (tempNumber > 0)
             {
                 if ((tempNumber % 10) % 2 == 0)
@@ -138,7 +139,7 @@ namespace Number_Analysis_App
 
         public bool ContainsOddDigits()
         {
-            int tempNumber = number;
+            var tempNumber = number;
             while (tempNumber > 0)
             {
                 if ((tempNumber % 10) % 2 != 0)
@@ -152,11 +153,11 @@ namespace Number_Analysis_App
 
         public bool IsAmstrongNumber()
         {
-            int tempNumber = number;
+            var tempNumber = number;
             int sumOfDigits = 0;
             while (tempNumber > 0)
             {
-                sumOfDigits += (int)Math.Pow(tempNumber % 10, GetDigitsCount());
+                sumOfDigits += (int)Math.Pow((int)(tempNumber % 10), GetDigitsCount());
                 tempNumber /= 10;
             }
             return sumOfDigits == number;
@@ -177,8 +178,8 @@ namespace Number_Analysis_App
 
         public bool IsPalindrome()
         {
-            int tempNumber = number;
-            int reverseNumber = 0;
+            var tempNumber = number;
+            BigInteger reverseNumber = 0;
             while (tempNumber > 0)
             {
                 reverseNumber  += tempNumber % 10;
@@ -191,9 +192,9 @@ namespace Number_Analysis_App
 
         public string ToBinary()
         {
-            int tempNumber = number;
+            var tempNumber = number;
             string binaryNumber = "";
-          ;
+          
             while (tempNumber > 0)
             {
                 binaryNumber += (tempNumber % 2);
@@ -202,10 +203,10 @@ namespace Number_Analysis_App
             return binaryNumber;
         }
 
-        public int ToOctal()
+        public BigInteger ToOctal()
         {
-            int tempNumber = number;
-          int octal = 0;
+            var tempNumber = number;
+          BigInteger octal = 0;
             while (tempNumber > 0)
             {
                octal += (tempNumber % 8);
@@ -217,11 +218,11 @@ namespace Number_Analysis_App
 
         public string ToHexadecimal()
         {
-            int tempNumber = number;
+            var tempNumber = number;
            string hexadecimalNumber = "";
             while (tempNumber > 0)
             {
-                int value = tempNumber % 16;
+                int value = (int)(tempNumber % 16);
 
                 if (value > 9)
                 {
@@ -282,11 +283,11 @@ namespace Number_Analysis_App
 
         public bool IsStrongNumber()
         {
-            int tempNumber = number;
+            var tempNumber = number;
             int sumOfFactorials = 0;
             while (tempNumber > 0)
             {
-                sumOfFactorials += GetFactorial(tempNumber % 10);
+                sumOfFactorials += GetFactorial((int)(tempNumber % 10));
                 tempNumber /= 10;
             }
             return sumOfFactorials == number;

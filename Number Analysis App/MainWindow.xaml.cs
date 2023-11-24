@@ -19,6 +19,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Windows.Forms;
+using System.Numerics;
 
 namespace Number_Analysis_App
 {
@@ -38,7 +39,7 @@ namespace Number_Analysis_App
         {
             try
             {
-                int number = Convert.ToInt32(EnterNumberBox.Text);
+                BigInteger number = BigInteger.Parse(EnterNumberBox.Text);
                 numberAnalysis = new NumberAnalyser(number);
 
                 ShowNumberBox.Text = numberAnalysis.Number.ToString();
