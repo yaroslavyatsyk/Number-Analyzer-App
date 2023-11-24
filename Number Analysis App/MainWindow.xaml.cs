@@ -178,24 +178,118 @@ namespace Number_Analysis_App
 
 
                         // Add content to the PDF (as in your existing code)
+
+                        PdfPTable reportTable = new PdfPTable(2);
+
+                        reportTable.AddCell("Number");
+                        reportTable.AddCell(numberAnalysis.Number.ToString());
+
+                        reportTable.AddCell("Number of Digits");
+                        reportTable.AddCell(numberAnalysis.GetDigitsCount().ToString());
+
+                        reportTable.AddCell("Sum of Digits");
+                        reportTable.AddCell(numberAnalysis.GetSumOfDigits().ToString());
+
+                        reportTable.AddCell("Product of Digits");
+                        reportTable.AddCell(numberAnalysis.GetProductOfDigits().ToString());
+
+                        reportTable.AddCell("Binary");
+                        reportTable.AddCell(numberAnalysis.ToBinary().ToString());
+
+                        reportTable.AddCell("Octal");
+                        reportTable.AddCell(numberAnalysis.ToOctal().ToString());
+
+                        reportTable.AddCell("Hexadecimal");
+                        reportTable.AddCell(numberAnalysis.ToHexadecimal().ToString());
+
+                        reportTable.AddCell("Prime Number");
+                        if(numberAnalysis.isPrimeNumber())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Palindrome");
+                        if(numberAnalysis.IsPalindrome())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Amstrong Number");
+                        if(numberAnalysis.IsAmstrongNumber())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Largest Digit");
+                        reportTable.AddCell(numberAnalysis.GetLargestDigit().ToString());
+
+                        reportTable.AddCell("Smallest Digit");
+                        reportTable.AddCell(numberAnalysis.GetSmallestDigit().ToString());
+
+                        reportTable.AddCell("Perfect Number");
+                        if(numberAnalysis.IsPerfectNumber())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Even Digits");
+                        if(numberAnalysis.ContainsEvenDigits())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Odd Digits");
+                        if(numberAnalysis.ContainsOddDigits())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Factorial");
+                        if(numberAnalysis.IsFactorial())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
+
+                        reportTable.AddCell("Strong Number");
+                        if(numberAnalysis.IsStrongNumber())
+                        {
+                            reportTable.AddCell("Yes");
+                        }
+                        else
+                        {
+                            reportTable.AddCell("No");
+                        }
                        
-                        document.Add(new iTextSharp.text.Paragraph("Number: " + numberAnalysis.Number.ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Number of Digits: " + numberAnalysis.GetDigitsCount().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Sum of Digits: " + numberAnalysis.GetSumOfDigits().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Product of Digits: " + numberAnalysis.GetProductOfDigits().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Binary: " + numberAnalysis.ToBinary().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Octal: " + numberAnalysis.ToOctal().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Hexadecimal: " + numberAnalysis.ToHexadecimal().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Prime Number: " + numberAnalysis.isPrimeNumber().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Palindrome: " + numberAnalysis.IsPalindrome().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Amstrong Number: " + numberAnalysis.IsAmstrongNumber().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Max Digit: " + numberAnalysis.GetLargestDigit().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Min Digit: " + numberAnalysis.GetSmallestDigit().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Perfect Number: " + numberAnalysis.IsPerfectNumber().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Contains Even Digits: " + numberAnalysis.ContainsEvenDigits().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Contains Odd Digits: " + numberAnalysis.ContainsOddDigits().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Is Factorial: " + numberAnalysis.IsFactorial().ToString()));
-                        document.Add(new iTextSharp.text.Paragraph("Is Strong Number: " + numberAnalysis.IsStrongNumber().ToString()));
+                       
+                        document.Add(reportTable);
 
 
                         var titleTable = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
