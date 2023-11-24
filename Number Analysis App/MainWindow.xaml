@@ -49,8 +49,8 @@
         <TextBox x:Name="IsFactorialTextBox" HorizontalAlignment="Left" Margin="555,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" Height="18"/>
         <Label x:Name="label12" Content="Is the strong number?" Background="WhiteSmoke" HorizontalAlignment="Left" Margin="394,414,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="136"/>
         <TextBox x:Name="IsStrongNumberTextBox" HorizontalAlignment="Left" Margin="555,418,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button1" Content="Generate Report" HorizontalAlignment="Left" Margin="367,544,0,0" VerticalAlignment="Top" Click="button1_Click"/>
-        <Border BorderBrush="Black" BorderThickness="1"/>
+        <Button x:Name="button1" Content="Generate Report" HorizontalAlignment="Left" Margin="462,469,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+
 
 
     </Grid>
