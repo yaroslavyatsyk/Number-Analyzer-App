@@ -319,23 +319,6 @@ namespace Number_Analysis_App
             Dictionary<long, int> digitFrequencies = GetDigitFrequencies();
             List<long> uniqueDigits = new List<long>();
 
-            var temp = number;
-
-            while(temp > 0)
-            {
-                var digit = temp % 10;
-
-                if(digitFrequencies.ContainsKey(digit))
-                {
-                    digitFrequencies[digit]++;
-                }
-                else
-                {
-                    digitFrequencies.Add(digit, 1);
-                }
-                temp /= 10;
-            }
-
 
             foreach (var kvp in digitFrequencies)
             {
@@ -344,6 +327,7 @@ namespace Number_Analysis_App
                     uniqueDigits.Add(kvp.Key);
                 }
             }
+            uniqueDigits.Sort();
             return uniqueDigits;
 
         }
