@@ -313,6 +313,18 @@ namespace Number_Analysis_App
             return false;
         }
 
+        public List<long> GetUniqueDigits()
+        {
+            var tempNumber = number;
+            HashSet<long> uniqueDigits = new HashSet<long>();
+            while (tempNumber > 0)
+            {
+                uniqueDigits.Add(tempNumber % 10);
+                tempNumber /= 10;
+            }
+            return uniqueDigits.ToList();
+        }
+
 
     }
 }
