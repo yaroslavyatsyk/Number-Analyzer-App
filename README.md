@@ -1,5 +1,11 @@
 
-The app provides information about a specific number
+The app provides information about a specific number.
+
+Used technologies:
+
+C#
+.NET Framework
+WPF
 
 Here is a demo!
 
