@@ -322,6 +322,42 @@ namespace Number_Analysis_App
                         }
 
                         document.Add(table);
+
+                        document.Add(new iTextSharp.text.Paragraph("\n"));
+
+                        document.NewPage();
+
+                        var titlefont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+                        var titleParagraph2 = new iTextSharp.text.Paragraph("Unique Digits", titlefont);
+
+                        titleParagraph2.Alignment = Element.ALIGN_CENTER;
+                        document.Add(titleParagraph2);
+                        document.Add(new iTextSharp.text.Paragraph("\n"));
+                        // Add table with unique digits
+                        PdfPTable uniqueDigitsTable = new PdfPTable(1);
+                        uniqueDigitsTable.AddCell("Unique Digits");
+
+                        // Get unique digits from the number
+                        var uniqueDigits = numberAnalysis.GetUniqueDigits();
+
+                        if(uniqueDigits.Count == 0)
+                        {
+                            uniqueDigitsTable.AddCell("No Unique Digits Found");
+                        }
+                        else
+                        {
+                            foreach (var digit in uniqueDigits)
+                            {
+                                uniqueDigitsTable.AddCell(digit.ToString());
+                            }
+                        }
+                            
+                        document.Add(uniqueDigitsTable);
+
+
+
+
+
                         document.Close();
 
                         writer.Close();

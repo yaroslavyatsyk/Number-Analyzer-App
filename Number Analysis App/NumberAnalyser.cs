@@ -315,14 +315,36 @@ namespace Number_Analysis_App
 
         public List<long> GetUniqueDigits()
         {
-            var tempNumber = number;
-            HashSet<long> uniqueDigits = new HashSet<long>();
-            while (tempNumber > 0)
+            
+            Dictionary<long, int> digitFrequencies = GetDigitFrequencies();
+            List<long> uniqueDigits = new List<long>();
+
+            var temp = number;
+
+            while(temp > 0)
             {
-                uniqueDigits.Add(tempNumber % 10);
-                tempNumber /= 10;
+                var digit = temp % 10;
+
+                if(digitFrequencies.ContainsKey(digit))
+                {
+                    digitFrequencies[digit]++;
+                }
+                else
+                {
+                    digitFrequencies.Add(digit, 1);
+                }
             }
-            return uniqueDigits.ToList();
+
+
+            foreach (var kvp in digitFrequencies)
+            {
+                if (kvp.Value == 1)
+                {
+                    uniqueDigits.Add(kvp.Key);
+                }
+            }
+            return uniqueDigits;
+
         }
 
 
