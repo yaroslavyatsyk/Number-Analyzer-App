@@ -193,14 +193,16 @@ namespace Number_Analysis_App
         public string ToBinary()
         {
             var tempNumber = number;
-            string binaryNumber = "";
-          
+            StringBuilder binaryNumber = new StringBuilder();
+
             while (tempNumber > 0)
             {
-                binaryNumber += (tempNumber % 2);
+                var binaryDigit = tempNumber % 2;
+                
+                binaryNumber.Insert(0, binaryDigit);
                 tempNumber /= 2;
             }
-            return binaryNumber;
+            return binaryNumber.ToString();
         }
 
         public long ToOctal()
@@ -219,7 +221,7 @@ namespace Number_Analysis_App
         public string ToHexadecimal()
         {
             var tempNumber = number;
-           string hexadecimalNumber = "";
+            StringBuilder hexadecimalBuilder = new StringBuilder();
             while (tempNumber > 0)
             {
                 int value = (int)(tempNumber % 16);
@@ -229,33 +231,35 @@ namespace Number_Analysis_App
                     switch (value)
                     {
                         case 10:
-                            hexadecimalNumber += "A";
+                            hexadecimalBuilder.Insert(0,"A");
                             break;
                         case 11:
-                            hexadecimalNumber += "B";
+                            hexadecimalBuilder.Insert(0, "B");
                             break;
                         case 12:
-                            hexadecimalNumber += "C";
+                            hexadecimalBuilder.Insert(0, "C");
                             break;
                         case 13:
-                            hexadecimalNumber += "D";
+                            hexadecimalBuilder.Insert(0, "D");
                             break;
                         case 14:
-                            hexadecimalNumber += "E";
+                              
+                            hexadecimalBuilder.Insert(0, "E");
                             break;
                         case 15:
-                            hexadecimalNumber += "F";
+                            hexadecimalBuilder.Insert(0, "F");
                             break;
 
                     }
                 }
                 else
                 {
-                    hexadecimalNumber += value;
+                    hexadecimalBuilder.Insert(0, value);
+
                 }
                 tempNumber /= 16;
             }
-            return hexadecimalNumber;
+            return hexadecimalBuilder.ToString();
         }
 
         private long GetFactorial(int number)
