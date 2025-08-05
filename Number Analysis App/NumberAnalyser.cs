@@ -333,6 +333,7 @@ namespace Number_Analysis_App
                 {
                     digitFrequencies.Add(digit, 1);
                 }
+                temp /= 10;
             }
 
 
